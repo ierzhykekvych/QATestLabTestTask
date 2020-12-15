@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -53,6 +54,7 @@ public class NewRequestTest {
         signInPageObject.getSingInComponent().inputPassword(password);
         signInPageObject.getSingInComponent().clickOnSingInButton();
         mainPageObject.getCommonLeftSideBarComponent().clickOnMedicationButton();
+
         Assert.assertEquals(medicationPageObject.getMedicationPropertiesList().requestButton(), nameMedicationPropertiesList.requests());
         Assert.assertEquals(medicationPageObject.getMedicationPropertiesList().newRequestButton(), nameMedicationPropertiesList.newRequest());
         Assert.assertEquals(medicationPageObject.getMedicationPropertiesList().returnMedicationButton(), nameMedicationPropertiesList.returnMedication());
@@ -73,9 +75,8 @@ public class NewRequestTest {
         newMedicationRequestPageObject.clickOnVisitButton();
         Thread.sleep(2000);
         newMedicationRequestPageObject.selectVisitOfData();
-        Thread.sleep(2000);
         newMedicationRequestPageObject.inputMedication("Pramoxine");
-        Thread.sleep(2000);
+
         newMedicationRequestPageObject.selectMedication();
         newMedicationRequestPageObject.inputPrescription(prescription.Prescription);
         newMedicationRequestPageObject.inputPrescriptionDate();

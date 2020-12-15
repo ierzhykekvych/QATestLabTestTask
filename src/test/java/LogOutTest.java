@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -29,6 +30,11 @@ public class LogOutTest {
         driver.get(APPLICATION_URL);
     }
 
+    @Step("checking if page {actualURL} matches page {expectedURL}")
+    public static void checkingStringEqualsStep(String actualURL, String expectedURL) {
+        Assert.assertEquals(actualURL,expectedURL);
+    }
+
     @Test(dataProvider = "logOutTest")
     private void logOutTest(String userName, String password) {
         SignInPageObject signInPageObject = new SignInPageObject(driver);
@@ -38,11 +44,10 @@ public class LogOutTest {
         signInPageObject.getSingInComponent().clickOnSingInButton();
         mainPageObject.getCommonLeftSideBarComponent().clickOnCogwheelButton();
         mainPageObject.getCommonLeftSideBarComponent().getCogwheelComponent().clickOnLogOutButton();
+        String expectedURL = APPLICATION_URL;
+        String actualURL = driver.getCurrentUrl();
+        checkingStringEqualsStep(actualURL,expectedURL);
 
-        String expectedResult = APPLICATION_URL;
-        String actualResult = driver.getCurrentUrl();
-
-        Assert.assertEquals(actualResult,expectedResult);
     }
 
     @AfterClass

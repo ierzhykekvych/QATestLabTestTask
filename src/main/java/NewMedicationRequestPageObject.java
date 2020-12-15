@@ -25,7 +25,9 @@ public class NewMedicationRequestPageObject extends CommonPageObject {
     private static final String QUANTITY_REQUESTED = "/html/body/div[1]/div/div[2]/div/div/div[1]/form/div[5]/div[1]/div/input";
     private static final String REFILLS = "/html/body/div[1]/div/div[2]/div/div/div[1]/form/div[5]/div[2]/div/input";
     private static final String FULFILL_REQUEST = "[id=\"shouldFulfillRequest-ember1274\"]";
+    private static final String MEDICATION_REQUEST_SAVED_COMPONENT = "/html/body/div[1]/div[2]/div/div/div/div[2]/text()";
 
+    private WebDriverWait wait;
     @FindBy(xpath = PATIENT_FIELD)
     private WebElement patient;
 
@@ -61,8 +63,8 @@ public class NewMedicationRequestPageObject extends CommonPageObject {
 
     public NewMedicationRequestPageObject(WebDriver driver) {
         super(driver);
-        int timeOutInSeconds = 10;
-        WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
+        int timeOutInSeconds = 2;
+        wait = new WebDriverWait(driver, timeOutInSeconds);
     }
 
     MedicationRequestComponent getMedicationRequestComponent() {
@@ -142,7 +144,6 @@ public class NewMedicationRequestPageObject extends CommonPageObject {
     }
 
     public boolean isVisibleMedicationRequestSaved() {
-        return driver.findElements(By.xpath("/html/body/div[1]/div[2]/div/div/div/div[2]/text()")).isEmpty();
+        return wait.until(ExpectedConditions.invisibilityOfElementWithText(By.xpath(MEDICATION_REQUEST_SAVED_COMPONENT),"The medication record has been saved."));
     }
-
 }

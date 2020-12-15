@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="64.226" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="60.252" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -64,9 +64,9 @@
     <property name="library.jansi.path" value="D:\apache-maven-3.6.3\bin\..\lib\jansi-native"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="signInNegativeTestEmptyFields" classname="LogInNegativeTest" time="3.305"/>
-  <testcase name="signInNegativeTestWrongData" classname="LogInNegativeTest" time="1.474"/>
-  <testcase name="signInTest" classname="LogInTest" time="3.934"/>
-  <testcase name="logOutTest" classname="LogOutTest" time="1.679"/>
-  <testcase name="logOutTest" classname="NewRequestTest" time="36.825"/>
+  <testcase name="signInNegativeTestEmptyFields" classname="LogInNegativeTest" time="2.706"/>
+  <testcase name="signInNegativeTestWrongData" classname="LogInNegativeTest" time="1.56"/>
+  <testcase name="signInTest" classname="LogInTest" time="4.263"/>
+  <testcase name="logOutTest" classname="LogOutTest" time="1.572"/>
+  <testcase name="logOutTest" classname="NewRequestTest" time="32.527"/>
 </testsuite>
