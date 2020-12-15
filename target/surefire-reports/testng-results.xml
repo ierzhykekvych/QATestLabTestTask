@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-12-15T12:48:35Z" name="Surefire suite" finished-at="2020-12-15T12:49:38Z" duration-ms="62925">
+    <groups>
+    </groups>
+    <test started-at="2020-12-15T12:48:35Z" name="Surefire test" finished-at="2020-12-15T12:49:38Z" duration-ms="62925">
+      <class name="LogInTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:LogInTest@23cd4ff2]" started-at="2020-12-15T12:48:44Z" name="setup" finished-at="2020-12-15T12:48:46Z" duration-ms="2519" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="signInTest(java.lang.String, java.lang.String)[pri:0, instance:LogInTest@23cd4ff2]" started-at="2020-12-15T12:48:46Z" name="signInTest" data-provider="positiveTest" finished-at="2020-12-15T12:48:50Z" duration-ms="3946" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[hr.doctor@hospitalrun.io]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[HRt3st12]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- signInTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:LogInTest@23cd4ff2]" started-at="2020-12-15T12:48:50Z" name="tearDown" finished-at="2020-12-15T12:48:51Z" duration-ms="637" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- LogInTest -->
+      <class name="LogOutTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:LogOutTest@70807224]" started-at="2020-12-15T12:48:51Z" name="setup" finished-at="2020-12-15T12:48:55Z" duration-ms="4492" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="logOutTest(java.lang.String, java.lang.String)[pri:0, instance:LogOutTest@70807224]" started-at="2020-12-15T12:48:55Z" name="logOutTest" data-provider="logOutTest" finished-at="2020-12-15T12:48:57Z" duration-ms="1676" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[hr.doctor@hospitalrun.io]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[HRt3st12]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logOutTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:LogOutTest@70807224]" started-at="2020-12-15T12:48:57Z" name="tearDown" finished-at="2020-12-15T12:48:58Z" duration-ms="672" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- LogOutTest -->
+      <class name="NewRequestTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:NewRequestTest@7e97551f]" started-at="2020-12-15T12:48:58Z" name="setup" finished-at="2020-12-15T12:49:00Z" duration-ms="2484" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="logOutTest(java.lang.String, java.lang.String)[pri:0, instance:NewRequestTest@7e97551f]" started-at="2020-12-15T12:49:00Z" name="logOutTest" data-provider="CreateNewRequest" finished-at="2020-12-15T12:49:37Z" duration-ms="36826" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[hr.doctor@hospitalrun.io]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[HRt3st12]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logOutTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:NewRequestTest@7e97551f]" started-at="2020-12-15T12:49:37Z" name="tearDown" finished-at="2020-12-15T12:49:38Z" duration-ms="736" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- NewRequestTest -->
+      <class name="LogInNegativeTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:LogInNegativeTest@5b5caf08]" started-at="2020-12-15T12:48:35Z" name="setup" finished-at="2020-12-15T12:48:38Z" duration-ms="2656" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="signInNegativeTestEmptyFields(java.lang.String, java.lang.String)[pri:0, instance:LogInNegativeTest@5b5caf08]" started-at="2020-12-15T12:48:38Z" name="signInNegativeTestEmptyFields" data-provider="negativeTestEmptyFields" finished-at="2020-12-15T12:48:41Z" duration-ms="3274" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- signInNegativeTestEmptyFields -->
+        <test-method signature="signInNegativeTestWrongData(java.lang.String, java.lang.String)[pri:0, instance:LogInNegativeTest@5b5caf08]" started-at="2020-12-15T12:48:41Z" name="signInNegativeTestWrongData" data-provider="negativeTestWrongData" finished-at="2020-12-15T12:48:43Z" depends-on-methods="LogInNegativeTest.signInNegativeTestEmptyFields" duration-ms="1465" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- signInNegativeTestWrongData -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:LogInNegativeTest@5b5caf08]" started-at="2020-12-15T12:48:43Z" name="tearDown" finished-at="2020-12-15T12:48:44Z" duration-ms="1327" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- LogInNegativeTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
