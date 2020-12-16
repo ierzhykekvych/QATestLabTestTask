@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class LogInTest {
 
     private static final String CHROME_DRIVER_PROPERTY = "webdriver.chrome.driver";
-    private static final String CHROME_DRIVER_LOCATION = "src\\test\\WebDrivers\\Chrome\\86.0.4240.22\\chromedriver.exe"; // CSS зазвичай юзати
+    private static final String CHROME_DRIVER_LOCATION = "src\\test\\WebDrivers\\Chrome\\86.0.4240.22\\chromedriver.exe";
     private static final String APPLICATION_URL = "http://demo.hospitalrun.io/#/login";
     private static WebDriver driver;
 

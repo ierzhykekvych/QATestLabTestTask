@@ -1,12 +1,15 @@
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import javax.swing.*;
 import java.util.concurrent.TimeUnit;
 
 public class LogOutTest {
@@ -36,7 +39,7 @@ public class LogOutTest {
     }
 
     @Test(dataProvider = "logOutTest")
-    private void logOutTest(String userName, String password) {
+    private void logOutTest(String userName, String password) throws Exception {
         SignInPageObject signInPageObject = new SignInPageObject(driver);
         MainPageObject mainPageObject = new MainPageObject(driver);
         signInPageObject.getSingInComponent().inputUsername(userName);
@@ -47,7 +50,6 @@ public class LogOutTest {
         String expectedURL = APPLICATION_URL;
         String actualURL = driver.getCurrentUrl();
         checkingStringEqualsStep(actualURL,expectedURL);
-
     }
 
     @AfterClass

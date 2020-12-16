@@ -6,10 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.swing.*;
+import java.awt.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class NewMedicationRequestPageObject extends CommonPageObject {
@@ -27,7 +30,7 @@ public class NewMedicationRequestPageObject extends CommonPageObject {
     private static final String FULFILL_REQUEST = "[id=\"shouldFulfillRequest-ember1274\"]";
     private static final String MEDICATION_REQUEST_SAVED_COMPONENT = "/html/body/div[1]/div[2]/div/div/div/div[2]/text()";
 
-    private WebDriverWait wait;
+    private final WebDriverWait wait;
     @FindBy(xpath = PATIENT_FIELD)
     private WebElement patient;
 

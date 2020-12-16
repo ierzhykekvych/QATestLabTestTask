@@ -71,6 +71,7 @@ public class NewRequestTest {
         newMedicationRequestPageObject.inputPatient("ie");
         Thread.sleep(1000);
         newMedicationRequestPageObject.inputPatient("nt");
+        Thread.sleep(1000);
         newMedicationRequestPageObject.selectPatient();
         newMedicationRequestPageObject.clickOnVisitButton();
         Thread.sleep(2000);
