@@ -61,24 +61,15 @@ public class NewRequestTest {
         Assert.assertEquals(medicationPageObject.getMedicationPropertiesList().completedButton(), nameMedicationPropertiesList.completed());
 
         medicationPageObject.getMedicationPropertiesList().clickNewRequest();
-        //newMedicationRequestPageObject.inputPatient("Test Patient");
-
-        Thread.sleep(1000);
-        newMedicationRequestPageObject.inputPatient(" ");
-        Thread.sleep(1000);
-        newMedicationRequestPageObject.inputPatient("Pat");
-        Thread.sleep(1000);
-        newMedicationRequestPageObject.inputPatient("ie");
-        Thread.sleep(1000);
-        newMedicationRequestPageObject.inputPatient("nt");
-        Thread.sleep(1000);
+        newMedicationRequestPageObject.inputPatient(newMedicationRequestPageObject.patient,"Test Patient");
         newMedicationRequestPageObject.selectPatient();
         newMedicationRequestPageObject.clickOnVisitButton();
         Thread.sleep(2000);
         newMedicationRequestPageObject.selectVisitOfData();
         newMedicationRequestPageObject.inputMedication("Pramoxine");
 
-        newMedicationRequestPageObject.selectMedication();
+        newMedicationRequestPageObject
+                .selectMedication();
         newMedicationRequestPageObject.inputPrescription(prescription.Prescription);
         newMedicationRequestPageObject.inputPrescriptionDate();
         newMedicationRequestPageObject.inputRefills();

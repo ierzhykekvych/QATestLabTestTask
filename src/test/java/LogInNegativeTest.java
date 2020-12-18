@@ -33,7 +33,7 @@ public class LogInNegativeTest {
         driver.manage().window().maximize();
     }
 
-    @Test(dataProvider = "negativeTestEmptyFields")
+    @Test(dataProvider = "negativeTestEmptyFields", enabled = true)
     private void signInNegativeTestEmptyFields(String userName, String password) {
         driver.get(APPLICATION_URL);
         SignInPageObject signInPageObject = new SignInPageObject(driver);

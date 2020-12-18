@@ -15,24 +15,25 @@ import java.util.*;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+import static java.lang.Thread.sleep;
+
 public class NewMedicationRequestPageObject extends CommonPageObject {
 
-    private WebElement panelBody;
-
-    private static final String PATIENT_FIELD = "/html/body/div[1]/div/div[2]/div/div/div[1]/form/div[1]/div[1]/div/span/input[2]";
+    private static final String PATIENT_FIELD = "//input[starts-with(@id,'patientTypeAhead-ember')]";
     private static final String PATIENT_DATA_FIELD = "//div[text() = \" - P00201\"]";
     private static final String VISIT_FIELD = "[class=\"form-control \"]";
-    private static final String MEDICATION_FIELD = "/html/body/div[1]/div/div[2]/div/div/div[1]/form/div[2]/div/span/input[2]";
+    private static final String MEDICATION_FIELD = "//span/input[starts-with(@id,'inventoryItemTypeAhead-ember')]";
     private static final String PRESCRIPTION_FIELD = "[class=\"form-control  ember-text-area ember-view\"]";
-    private static final String PRESCRIPTION_DATE_FIELD = "/html/body/div[1]/div/div[2]/div/div/div[1]/form/div[4]/div/div/input";
-    private static final String QUANTITY_REQUESTED = "/html/body/div[1]/div/div[2]/div/div/div[1]/form/div[5]/div[1]/div/input";
-    private static final String REFILLS = "/html/body/div[1]/div/div[2]/div/div/div[1]/form/div[5]/div[2]/div/input";
+    private static final String PRESCRIPTION_DATE_FIELD = "//input[starts-with(@id,'display_prescriptionDate-ember')]";
+    private static final String QUANTITY_REQUESTED = "//input[starts-with(@id,'quantity-ember')]";
+    private static final String REFILLS = "//input[starts-with(@id,'refills-ember')]";
     private static final String FULFILL_REQUEST = "[id=\"shouldFulfillRequest-ember1274\"]";
-    private static final String MEDICATION_REQUEST_SAVED_COMPONENT = "/html/body/div[1]/div[2]/div/div/div/div[2]/text()";
-
+    private static final String MEDICATION_REQUEST_SAVED_COMPONENT = "//div[text()= \"The medication record has been saved.\"]";
     private final WebDriverWait wait;
+    private WebElement panelBody;
+
     @FindBy(xpath = PATIENT_FIELD)
-    private WebElement patient;
+    WebElement patient;
 
     @FindBy(xpath = PATIENT_DATA_FIELD)
     private WebElement patientData;
@@ -74,17 +75,6 @@ public class NewMedicationRequestPageObject extends CommonPageObject {
         return new MedicationRequestComponent(driver, medicationRequestSaved);
     }
 
-    /*
-    public void select4() {
-        List<WebElement> allProducts = driver.findElements(By.xpath("//div[@class=\"primary-nav\"]/*"));
-        Random rand = new Random();
-        int randomProduct = rand.nextInt(allProducts.size());
-        allProducts.get(randomProduct).click();
-        Select select = new Select(visit);
-        select.selectByVisibleText("12/31/2019 - 2/14/2020 (Admission)");
-    }
-     */
-
     public void clickOnVisitButton() {
         visit.click();
     }
@@ -96,19 +86,29 @@ public class NewMedicationRequestPageObject extends CommonPageObject {
         list.get(rand).click();
     }
 
-    public void inputPatient(String nameOfClient) {
-        patient.sendKeys(nameOfClient);
+
+    protected void inputPatient(WebElement webElement, String text) {
+        webElement.clear();
+        for (int i = 0; i < text.length(); i++) {
+            webElement.sendKeys(String.valueOf(text.charAt(i)));
+            try {
+                sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void inputMedication(String nameOfMedication) {
         medicationField.sendKeys(nameOfMedication);
     }
 
-    public void selectMedication() {
+    public NewMedicationRequestPageObject selectMedication() {
         List<WebElement> listOfMedication = driver.findElements(By.xpath("//div[@class= \"tt-dataset tt-dataset-1\"]/*"));
         int size = listOfMedication.size();
         int rand = ThreadLocalRandom.current().nextInt(0, size);
         listOfMedication.get(rand).click();
+        return this;
     }
 
     public void selectPatient() {

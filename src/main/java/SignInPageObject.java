@@ -17,7 +17,7 @@ public class SignInPageObject extends CommonPageObject {
     @FindBy(css = ERROR_PASSWORD_IS_REQUIRED)
     private WebElement errorPasswordIsRequired;
 
-    @FindBy(css = SING_IN_COMPONENT )
+    @FindBy(css = SING_IN_COMPONENT)
     WebElement singInComponent;
 
     public SignInPageObject(WebDriver driver){

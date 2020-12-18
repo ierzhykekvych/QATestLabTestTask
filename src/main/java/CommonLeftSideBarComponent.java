@@ -3,7 +3,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class CommonLeftSideBarComponent extends CommonPageObject {
+public class CommonLeftSideBarComponent extends CommonPageObject  {
 
     private static final String PATIENT_BUTTON = "[id=\"ember727\"]";
     private static final String MEDICATION = "[href=\"#/medication\"]";
@@ -19,6 +19,9 @@ public class CommonLeftSideBarComponent extends CommonPageObject {
 
     @FindBy(how = How.CSS, using = MEDICATION)
     private WebElement medicationButton;
+
+    Object fds = new Object();
+
 
     public CommonLeftSideBarComponent(WebDriver driver, WebElement element) {
         super(driver);
