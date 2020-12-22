@@ -4,14 +4,13 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.ITestResult;
+import org.testng.TestListenerAdapter;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
-public class LogInTest {
+public class LogInTest extends TestListenerAdapter {
 
     private static final String CHROME_DRIVER_PROPERTY = "webdriver.chrome.driver";
     private static final String CHROME_DRIVER_LOCATION = "src\\test\\WebDrivers\\Chrome\\86.0.4240.22\\chromedriver.exe";
@@ -19,7 +18,6 @@ public class LogInTest {
     private static WebDriver driver;
 
     int timeOut = 3;
-
     @DataProvider(name = "positiveTest")
     public Object[][] dataSignIn() {
         return new Object[][] {{("hr.doctor@hospitalrun.io"),("HRt3st12")}};

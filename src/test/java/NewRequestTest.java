@@ -4,10 +4,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+import org.testng.annotations.*;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -26,9 +26,10 @@ public class NewRequestTest {
     private static final String APPLICATION_URL = "http://demo.hospitalrun.io/#/login";
     private static WebDriver driver;
     private static WebDriverWait wait;
+
     @DataProvider(name = "CreateNewRequest")
     public Object[][] dataSignIn() {
-        return new Object[][] {{("hr.doctor@hospitalrun.io"),("HRt3st12")}};
+        return new Object[][]{{("hr.doctor@hospitalrun.io"), ("HRt3st12")}};
     }
 
     @BeforeClass
@@ -62,7 +63,7 @@ public class NewRequestTest {
         Assert.assertEquals(medicationPageObject.getMedicationPropertiesList().completedButton(), nameMedicationPropertiesList.completed());
 
         medicationPageObject.getMedicationPropertiesList().clickNewRequest();
-        newMedicationRequestPageObject.inputPatient(newMedicationRequestPageObject.patient,"Test Patient");
+        newMedicationRequestPageObject.inputPatient(newMedicationRequestPageObject.patient, "Test Patient");
         newMedicationRequestPageObject.selectPatient();
         newMedicationRequestPageObject.clickOnVisitButton();
         newMedicationRequestPageObject.selectVisitOfData();
@@ -89,5 +90,4 @@ public class NewRequestTest {
     private static void tearDown() {
         driver.quit();
     }
-
 }
