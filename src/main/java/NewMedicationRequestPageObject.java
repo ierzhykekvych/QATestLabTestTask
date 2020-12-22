@@ -67,27 +67,30 @@ public class NewMedicationRequestPageObject extends CommonPageObject {
 
     public NewMedicationRequestPageObject(WebDriver driver) {
         super(driver);
-        int timeOutInSeconds = 2;
+        int timeOutInSeconds = 5;
         wait = new WebDriverWait(driver, timeOutInSeconds);
     }
 
-    MedicationRequestComponent getMedicationRequestComponent() {
+    public MedicationRequestComponent getMedicationRequestComponent() {
         return new MedicationRequestComponent(driver, medicationRequestSaved);
     }
 
-    public void clickOnVisitButton() {
+    public NewMedicationRequestPageObject clickOnVisitButton() {
         visit.click();
+        return this;
     }
 
-    public void selectVisitOfData() {
+    public NewMedicationRequestPageObject selectVisitOfData() throws InterruptedException {
+        sleep(2000);
         List<WebElement> list = driver.findElements(By.cssSelector("[value]"));
         int size = list.size();
         int rand = ThreadLocalRandom.current().nextInt(0, size);
         list.get(rand).click();
+        return this;
     }
 
 
-    protected void inputPatient(WebElement webElement, String text) {
+    protected NewMedicationRequestPageObject inputPatient(WebElement webElement, String text) {
         webElement.clear();
         for (int i = 0; i < text.length(); i++) {
             webElement.sendKeys(String.valueOf(text.charAt(i)));
@@ -97,10 +100,12 @@ public class NewMedicationRequestPageObject extends CommonPageObject {
                 e.printStackTrace();
             }
         }
+        return this;
     }
 
-    public void inputMedication(String nameOfMedication) {
+    public NewMedicationRequestPageObject inputMedication(String nameOfMedication) {
         medicationField.sendKeys(nameOfMedication);
+        return this;
     }
 
     public NewMedicationRequestPageObject selectMedication() {
@@ -111,15 +116,17 @@ public class NewMedicationRequestPageObject extends CommonPageObject {
         return this;
     }
 
-    public void selectPatient() {
+    public NewMedicationRequestPageObject selectPatient() {
         patientData.click();
+        return this;
     }
 
-    public void inputPrescription(String prescriptionText) {
+    public NewMedicationRequestPageObject inputPrescription(String prescriptionText) {
         prescription.sendKeys(prescriptionText);
+        return this;
     }
 
-    public void inputPrescriptionDate() throws ParseException {
+    public NewMedicationRequestPageObject inputPrescriptionDate() throws ParseException {
         String d = "MM/dd/yyyy";
         DateFormat dataFormat = new SimpleDateFormat(d);
         Date currentDate = new Date();
@@ -132,18 +139,22 @@ public class NewMedicationRequestPageObject extends CommonPageObject {
         prescriptionDateField.clear();
         prescriptionDateField.sendKeys(yesterday);
         prescriptionDateField.sendKeys(Keys.TAB);
+        return this;
     }
 
-    public void inputQuantityRequested() {
+    public NewMedicationRequestPageObject inputQuantityRequested() {
         quantityRequested.sendKeys(Integer.toString(new Random().nextInt(5)+1));
+        return this;
     }
 
-    public void inputRefills() {
+    public NewMedicationRequestPageObject inputRefills() {
         refills.sendKeys(Integer.toString(new Random().nextInt(5)+5));
+        return this;
     }
 
-    public void clickOnAddButton() {
+    public NewMedicationRequestPageObject clickOnAddButton() {
         addButton.click();
+        return this;
     }
 
     public boolean isVisibleMedicationRequestSaved() {

@@ -37,9 +37,10 @@ public class LogInNegativeTest {
     private void signInNegativeTestEmptyFields(String userName, String password) {
         driver.get(APPLICATION_URL);
         SignInPageObject signInPageObject = new SignInPageObject(driver);
-        signInPageObject.getSingInComponent().inputUsername(userName);
-        signInPageObject.getSingInComponent().inputPassword(password);
-        signInPageObject.getSingInComponent().clickOnSingInButton();
+        signInPageObject.getSingInComponent()
+                .inputUsername(userName)
+                .inputPassword(password)
+                .clickOnSingInButton();
 
         boolean actualResult = signInPageObject.isVisibleErrorEmailIsRequired();
         final boolean expectedResult = true;
@@ -54,9 +55,10 @@ public class LogInNegativeTest {
     private void signInNegativeTestWrongData(String userName, String password) {
         driver.get(APPLICATION_URL);
         SignInPageObject signInPageObject = new SignInPageObject(driver);
-        signInPageObject.getSingInComponent().inputUsername(userName);
-        signInPageObject.getSingInComponent().inputPassword(password);
-        signInPageObject.getSingInComponent().clickOnSingInButton();
+        signInPageObject.getSingInComponent()
+                .inputUsername(userName)
+                .inputPassword(password)
+                .clickOnSingInButton();
 
         boolean actual = signInPageObject.isVisibleErrorPasswordIsRequired();
         final boolean expectedResult = true;

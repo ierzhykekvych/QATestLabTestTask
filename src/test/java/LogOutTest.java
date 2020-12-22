@@ -42,11 +42,14 @@ public class LogOutTest {
     private void logOutTest(String userName, String password) throws Exception {
         SignInPageObject signInPageObject = new SignInPageObject(driver);
         MainPageObject mainPageObject = new MainPageObject(driver);
-        signInPageObject.getSingInComponent().inputUsername(userName);
-        signInPageObject.getSingInComponent().inputPassword(password);
-        signInPageObject.getSingInComponent().clickOnSingInButton();
-        mainPageObject.getCommonLeftSideBarComponent().clickOnCogwheelButton();
-        mainPageObject.getCommonLeftSideBarComponent().getCogwheelComponent().clickOnLogOutButton();
+        signInPageObject.getSingInComponent()
+                .inputUsername(userName)
+                .inputPassword(password)
+                .clickOnSingInButton();
+
+        mainPageObject.getCommonLeftSideBarComponent()
+                .clickOnCogwheelButton()
+                .getCogwheelComponent().clickOnLogOutButton();
         String expectedURL = APPLICATION_URL;
         String actualURL = driver.getCurrentUrl();
         checkingStringEqualsStep(actualURL,expectedURL);

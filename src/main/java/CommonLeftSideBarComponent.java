@@ -31,12 +31,14 @@ public class CommonLeftSideBarComponent extends CommonPageObject  {
         return new CogwheelComponent(driver, cogwheelComponent);
     }
 
-    public void clickOnPatientsButton() {
+    public CommonLeftSideBarComponent clickOnPatientsButton() {
         patientButton.click();
+        return this;
     }
 
-    public void clickOnCogwheelButton() {
+    public CommonLeftSideBarComponent clickOnCogwheelButton() {
         cogwheelButton.click();
+        return this;
     }
 
     public void clickOnMedicationButton() {

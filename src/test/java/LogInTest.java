@@ -39,9 +39,10 @@ public class LogInTest {
         WebDriverWait wait = new WebDriverWait(driver, timeOut);
         SignInPageObject signInPageObject = new SignInPageObject(driver);
         MainPageObject mainPageObject = new MainPageObject(driver);
-        signInPageObject.getSingInComponent().inputUsername(userName);
-        signInPageObject.getSingInComponent().inputPassword(password);
-        signInPageObject.getSingInComponent().clickOnSingInButton();
+        signInPageObject.getSingInComponent()
+                .inputUsername(userName)
+                .inputPassword(password)
+                .clickOnSingInButton();
         mainPageObject.getCommonLeftSideBarComponent().clickOnPatientsButton();
         wait.until(ExpectedConditions.urlToBe("http://demo.hospitalrun.io/#/patients"));
     }

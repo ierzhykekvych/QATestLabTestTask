@@ -1,3 +1,4 @@
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,6 +11,7 @@ public class SignInPageObject extends CommonPageObject {
     private static final String ERROR_PASSWORD_IS_REQUIRED = "[class=\"alert alert-danger form-signin-alert\"]";
     private static final String SING_IN_COMPONENT = "div.signin-contents";
     private static WebDriverWait wait;
+    JavascriptExecutor js = (JavascriptExecutor) driver;
 
     @FindBy(css = ERROR_EMAIL_IS_REQUIRED)
     private WebElement errorEmailIsRequired;

@@ -50,9 +50,10 @@ public class NewRequestTest {
         NewMedicationRequestPageObject newMedicationRequestPageObject = new NewMedicationRequestPageObject(driver);
         Prescription prescription = new Prescription();
         NameMedicationPropertiesList nameMedicationPropertiesList = new NameMedicationPropertiesList();
-        signInPageObject.getSingInComponent().inputUsername(userName);
-        signInPageObject.getSingInComponent().inputPassword(password);
-        signInPageObject.getSingInComponent().clickOnSingInButton();
+        signInPageObject.getSingInComponent()
+                .inputUsername(userName)
+                .inputPassword(password)
+                .clickOnSingInButton();
         mainPageObject.getCommonLeftSideBarComponent().clickOnMedicationButton();
 
         Assert.assertEquals(medicationPageObject.getMedicationPropertiesList().requestButton(), nameMedicationPropertiesList.requests());
@@ -64,16 +65,15 @@ public class NewRequestTest {
         newMedicationRequestPageObject.inputPatient(newMedicationRequestPageObject.patient,"Test Patient");
         newMedicationRequestPageObject.selectPatient();
         newMedicationRequestPageObject.clickOnVisitButton();
-        Thread.sleep(2000);
         newMedicationRequestPageObject.selectVisitOfData();
         newMedicationRequestPageObject.inputMedication("Pramoxine");
 
         newMedicationRequestPageObject
-                .selectMedication();
-        newMedicationRequestPageObject.inputPrescription(prescription.Prescription);
-        newMedicationRequestPageObject.inputPrescriptionDate();
-        newMedicationRequestPageObject.inputRefills();
-        newMedicationRequestPageObject.inputQuantityRequested();
+                .selectMedication()
+                .inputPrescription(prescription.Prescription)
+                .inputPrescriptionDate()
+                .inputRefills()
+                .inputQuantityRequested();
 
         newMedicationRequestPageObject.clickOnAddButton();
 

@@ -22,15 +22,18 @@ public class SingInComponent extends CommonPageObject {
         super(driver);
     }
 
-    public void inputUsername(String name) {
+    public SingInComponent inputUsername(String name) {
         userName.sendKeys(name);
+        return this;
     }
 
-    public void inputPassword(String password) {
+    public SingInComponent inputPassword(String password) {
         this.password.sendKeys(password);
+        return this;
     }
 
-    public void clickOnSingInButton() {
+    public SingInComponent clickOnSingInButton() {
         signIn.click();
+        return this;
     }
 }
