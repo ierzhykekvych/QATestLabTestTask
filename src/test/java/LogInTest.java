@@ -10,6 +10,7 @@ import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
+@Listeners(ListenersTestNG.class)
 public class LogInTest extends TestListenerAdapter {
 
     private static final String CHROME_DRIVER_PROPERTY = "webdriver.chrome.driver";
@@ -18,6 +19,7 @@ public class LogInTest extends TestListenerAdapter {
     private static WebDriver driver;
 
     int timeOut = 3;
+
     @DataProvider(name = "positiveTest")
     public Object[][] dataSignIn() {
         return new Object[][] {{("hr.doctor@hospitalrun.io"),("HRt3st12")}};
@@ -32,7 +34,7 @@ public class LogInTest extends TestListenerAdapter {
         driver.get(APPLICATION_URL);
     }
 
-    @Test(dataProvider = "positiveTest")
+    @Test(priority = 1, dataProvider = "positiveTest")
     private void signInTest(String userName, String password) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, timeOut);
         SignInPageObject signInPageObject = new SignInPageObject(driver);
@@ -49,5 +51,4 @@ public class LogInTest extends TestListenerAdapter {
     private static void tearDown() {
         driver.quit();
     }
-
 }

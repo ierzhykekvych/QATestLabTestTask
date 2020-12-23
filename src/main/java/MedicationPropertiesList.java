@@ -38,7 +38,7 @@ MedicationPropertiesList extends CommonPageObject {
     public String returnMedicationButton() {
         return driver.findElement(By.cssSelector(RETURN_MEDICATION)).getText();
     }
-/*
+    /*
         public ArrayList<String> optionsList() {
             List<String> list = new ArrayList<>();
             List<WebElement> optionsList = driver.findElements(By.xpath(OPTIONS_MEDICATION));
