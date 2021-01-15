@@ -1,6 +1,7 @@
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -18,33 +19,43 @@ import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.DataFormatException;
-
+@Listeners(ListenersTestNG.class)
 public class NewRequestTest {
 
     private static final String CHROME_DRIVER_PROPERTY = "webdriver.chrome.driver";
     private static final String CHROME_DRIVER_LOCATION = "src\\test\\WebDrivers\\Chrome\\87.0.4280.88\\chromedriver.exe";
+    private static final String MOZILLA_DRIVER_LOCATION = "src\\test\\WebDrivers\\Mozilla\\geckodriver.exe";
+    private static final String MOZILLA_DRIVER_PROPERTY = "webdriver.gecko.driver";
     private static final String APPLICATION_URL = "http://demo.hospitalrun.io/#/login";
-    private static WebDriver driver;
-    private static WebDriverWait wait;
+    private WebDriver driver;
+    private WebDriverWait wait;
+    int timeOut = 10;
 
     @DataProvider(name = "CreateNewRequest")
     public Object[][] dataSignIn() {
         return new Object[][]{{("hr.doctor@hospitalrun.io"), ("HRt3st12")}};
     }
 
+    @Parameters("browser")
     @BeforeClass
-    private static void setup() {
-        System.setProperty(CHROME_DRIVER_PROPERTY, CHROME_DRIVER_LOCATION);
-        driver = new ChromeDriver();
-        int timeOut = 3;
-        wait = new WebDriverWait(driver, timeOut);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    public void setup(String browser) throws Exception{
+
+        if(browser.equalsIgnoreCase("firefox")){
+            System.setProperty(MOZILLA_DRIVER_PROPERTY, MOZILLA_DRIVER_LOCATION);
+            driver = new FirefoxDriver();
+        }
+        else if(browser.equalsIgnoreCase("chrome")){
+            System.setProperty(CHROME_DRIVER_PROPERTY,CHROME_DRIVER_LOCATION);
+            driver = new ChromeDriver();
+        }
         driver.manage().window().maximize();
-        driver.get(APPLICATION_URL);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Test(dataProvider = "CreateNewRequest")
     private void logOutTest(String userName, String password) throws InterruptedException, ParseException {
+        wait = new WebDriverWait(driver, timeOut);
+        driver.get(APPLICATION_URL);
         SignInPageObject signInPageObject = new SignInPageObject(driver);
         MainPageObject mainPageObject = new MainPageObject(driver);
         MedicationPageObject medicationPageObject = new MedicationPageObject(driver);
@@ -87,7 +98,8 @@ public class NewRequestTest {
     }
 
     @AfterClass
-    private static void tearDown() {
-        driver.quit();
+    private void tearDown() {
+    driver.quit();
+
     }
 }

@@ -48,10 +48,11 @@ MedicationPropertiesList extends CommonPageObject {
 
             }
             return (ArrayList<String>) list;
-         }
+        }
     */
     public void clickNewRequest() {
         newRequest.click();
     }
+
 
 }

@@ -1,4 +1,5 @@
 LogInNegativeTest.class
 LogOutTest.class
+CrossBrowserScript.class
 LogInTest.class
 NewRequestTest.class

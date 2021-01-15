@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Failed suite [Surefire suite]" verbose="0">
+  <test thread-count="1" name="Surefire test(failed)" verbose="0">
+    <classes>
+      <class name="NewRequestTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="logOutTest"/>
+        </methods>
+      </class> <!-- NewRequestTest -->
+      <class name="LogInTest">
+        <methods>
+          <include name="signInTest"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- LogInTest -->
+      <class name="LogOutTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="logOutTest"/>
+        </methods>
+      </class> <!-- LogOutTest -->
+      <class name="LogInNegativeTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="signInNegativeTestEmptyFields"/>
+          <include name="signInNegativeTestWrongData"/>
+        </methods>
+      </class> <!-- LogInNegativeTest -->
+    </classes>
+  </test> <!-- Surefire test(failed) -->
+</suite> <!-- Failed suite [Surefire suite] -->

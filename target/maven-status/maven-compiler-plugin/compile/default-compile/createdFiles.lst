@@ -2,10 +2,12 @@ CommonLeftSideBarComponent.class
 SignInPageObject.class
 NameMedicationPropertiesList.class
 MedicationPropertiesList.class
+ListenersTestNG.class
 MedicationRequestComponent.class
+Prescription.class
+getDriver.class
 NewMedicationRequestPageObject.class
 MainPageObject.class
-Prescription.class
 SingInComponent.class
 MedicationPageObject.class
 CogwheelComponent.class
