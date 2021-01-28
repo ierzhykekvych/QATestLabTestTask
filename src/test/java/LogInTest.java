@@ -44,6 +44,10 @@ public class LogInTest extends TestListenerAdapter {
 
     @Test(dataProvider = "positiveTest")
     private void signInTest(String userName, String password) {
+        String name = "1";
+        String name2 = "1";
+        String name3 = new String("1");
+        System.out.println(name == name3);
         driver.get(APPLICATION_URL);
         WebDriverWait wait = new WebDriverWait(driver, timeOut);
         SignInPageObject signInPageObject = new SignInPageObject(driver);

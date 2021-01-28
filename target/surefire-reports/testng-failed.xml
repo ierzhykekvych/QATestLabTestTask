@@ -3,6 +3,14 @@
 <suite thread-count="1" name="Failed suite [Surefire suite]" verbose="0">
   <test thread-count="1" name="Surefire test(failed)" verbose="0">
     <classes>
+      <class name="LogInNegativeTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="signInNegativeTestEmptyFields"/>
+          <include name="signInNegativeTestWrongData"/>
+        </methods>
+      </class> <!-- LogInNegativeTest -->
       <class name="NewRequestTest">
         <methods>
           <include name="tearDown"/>
@@ -24,14 +32,6 @@
           <include name="logOutTest"/>
         </methods>
       </class> <!-- LogOutTest -->
-      <class name="LogInNegativeTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setup"/>
-          <include name="signInNegativeTestEmptyFields"/>
-          <include name="signInNegativeTestWrongData"/>
-        </methods>
-      </class> <!-- LogInNegativeTest -->
     </classes>
   </test> <!-- Surefire test(failed) -->
 </suite> <!-- Failed suite [Surefire suite] -->

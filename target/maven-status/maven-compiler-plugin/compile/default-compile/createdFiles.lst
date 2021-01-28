@@ -5,7 +5,6 @@ MedicationPropertiesList.class
 ListenersTestNG.class
 MedicationRequestComponent.class
 Prescription.class
-getDriver.class
 NewMedicationRequestPageObject.class
 MainPageObject.class
 SingInComponent.class

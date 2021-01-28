@@ -1,26 +1,26 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 13, Failures: 4, Errors: 0, Skipped: 9, Time elapsed: 2.431 s <<< FAILURE! - in TestSuite
-setup(LogInNegativeTest)  Time elapsed: 1.841 s  <<< FAILURE!
+Tests run: 13, Failures: 4, Errors: 0, Skipped: 9, Time elapsed: 1.68 s <<< FAILURE! - in TestSuite
+setup(LogInNegativeTest)  Time elapsed: 1.419 s  <<< FAILURE!
 org.testng.TestNGException: 
 
 Parameter 'browser' is required by BeforeClass on method setup but has not been marked @Optional or defined
 
 
-setup on [LogInTest passed=0 failed=0 skipped=0](LogInTest)  Time elapsed: 2.251 s  <<< FAILURE!
+setup on [LogInTest passed=0 failed=0 skipped=0](LogInTest)  Time elapsed: 1.495 s  <<< FAILURE!
 org.testng.TestNGException: 
 
 Parameter 'browser' is required by BeforeClass on method setup but has not been marked @Optional or defined
 
 
-setup(LogOutTest)  Time elapsed: 2.334 s  <<< FAILURE!
+setup(LogOutTest)  Time elapsed: 1.51 s  <<< FAILURE!
 org.testng.TestNGException: 
 
 Parameter 'browser' is required by BeforeClass on method setup but has not been marked @Optional or defined
 
 
-setup(NewRequestTest)  Time elapsed: 2.347 s  <<< FAILURE!
+setup(NewRequestTest)  Time elapsed: 1.525 s  <<< FAILURE!
 org.testng.TestNGException: 
 
 Parameter 'browser' is required by BeforeClass on method setup but has not been marked @Optional or defined
